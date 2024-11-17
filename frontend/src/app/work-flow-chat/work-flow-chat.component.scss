@@ -1,0 +1,35 @@
+@import './drawflow.min.css';
+@import './beautiful.scss';
+
+
+.container-menu{
+    .content-menu{
+        .itens{
+            .item{
+                background-color: #1f1f23;
+                transition: background-color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+                // bg-[#1f1f23] hover:bg-[#27272a]
+            }
+
+            .item:hover{
+                background-color: #27272a;
+            }
+        }
+    }
+}
+
+
+#drawflow{
+    width: 100vw;
+    height: 100vh;
+}
+
+.drawflow-node.start-whatsapp .outputs,.drawflow-node.start-manual .outputs{
+    width: 0;
+    position: absolute !important;
+    transform: translate(50%, 50%);
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+
+}

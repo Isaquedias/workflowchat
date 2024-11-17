@@ -1,0 +1,107 @@
+<div class="grid">
+    <div class="absolute w-[460px] top-4 left-4 z-[99999]">
+        <div class="container-menu border border-solid border-gray-300 p-4 bg-[#18181b] rounded flex flex-col gap-2">
+
+            <div class="flex gap-4 items-center">
+                <img width="25px" class="aspect-square"
+                    src="https://img.icons8.com/?size=100&id=4w8Wos4MAKRN&format=png&color=000000" alt="">
+                <span class="font-bold text-lg">Arraste para o fluxgrama</span>
+            </div>
+
+
+            <div class="content-menu container-bublles flex flex-col gap-2 ">
+                <header class="font-bold">
+                    <span>Início</span>
+                </header>
+                <div class="itens grid grid-cols-2 gap-2">
+
+                    <div class="item cursor-grab flex flex-col gap-2 border border-[#1f1f23] rounded-sm p-2 "
+                        draggable="true" (dragstart)="drag($event)" data-node="start-whatsapp">
+                        <header class="flex gap-2">
+                            <img width="25px" height="25px"
+                                src="https://img.icons8.com/?size=100&id=30448&format=png&color=000000">
+                            <span class="font-bold"> Inciar com Whatsap</span>
+                        </header>
+                        <div class="description pl-8 text-sm">
+                            Iniciar quando um contato entrar através de um canal.
+                        </div>
+                    </div>
+
+                    <div class="item cursor-grab flex flex-col gap-2 border border-[#1f1f23] rounded-sm p-2 "
+                        draggable="true" (dragstart)="drag($event)" data-node="start-manual">
+                        <header class="flex gap-2">
+                            <img width="25px" height="25px"
+                                src="https://img.icons8.com/?size=100&id=114420&format=png&color=000000">
+                            <span class="font-bold"> Inciar manualmente</span>
+                        </header>
+                        <div class="description pl-8 text-sm">
+                            Inicia quando o atendente ativa o fluxo manualmente.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- <div style="background-color: rgba(255,255,255,.45); height: 1px;" class="border bor"></div> -->
+            <!--
+            <div class="content-menu container-bublles flex flex-col gap-2 ">
+                <header class="flex gap-4 items-center">
+                    <span class="font-bold">Arraste para o fluxgrama</span>
+                </header>
+
+                <div class="itens grid grid-cols-2 gap-2">
+
+                    <div class="item cursor-grab flex gap-2 border border-[#1f1f23] rounded-sm p-2 " draggable="true"
+                        (dragstart)="drag($event)" data-node="start-whatsapp">
+                        <img width="25px" height="25px"
+                            src="https://img.icons8.com/?size=100&id=30448&format=png&color=000000"><span> Inciar com
+                            Whatsap</span>
+                    </div>
+
+                    <div class="item cursor-grab flex gap-2 border border-[#1f1f23] rounded-sm p-2 " draggable="true"
+                        (dragstart)="drag($event)" data-node="start-manual">
+                        <img width="25px" height="25px"
+                            src="https://img.icons8.com/?size=100&id=114420&format=png&color=000000"><span> Inciar
+                            manualmente</span>
+                    </div>
+
+                </div>
+
+            </div> -->
+
+            <!-- <div class="separador" class="border bor"></div> -->
+
+            <div class="content-menu container-bublles flex flex-col gap-2 ">
+                <header class="flex gap-4 items-center">
+                    <span class="font-bold">Ação</span>
+                </header>
+
+                <div class="itens grid grid-cols-2 gap-2">
+
+                    <div class="item cursor-grab flex flex-col gap-2 border border-[#1f1f23] rounded-sm p-2 "
+                        draggable="true" (dragstart)="drag($event)" data-node="send-message">
+                        <header class="flex gap-2">
+                            <img width="25px" height="25px"
+                                src="https://img.icons8.com/?size=100&id=42854&format=png&color=000000">
+                            <span class="font-bold"> Enviar mensagem</span>
+                        </header>
+                        <div class="description pl-8 text-sm">
+                            Envie uma mensagem diretamente para o contato.
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div id="drawflow" style="top: 0;" (drop)="drop($event)" (dragover)="allowDrop($event)">
+
+    </div>
+</div>
+
+
+<!-- <div class="aspect-square justify-center items-center"></div> -->
