@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewEncapsulation } from '@angular/core';
 import Drawflow from 'drawflow'
+import { HttpService } from '../core/service/http.service';
 
 @Component({
     selector: 'app-work-flow-chat',
@@ -13,13 +14,19 @@ export class WorkFlowChatComponent implements OnInit {
     public drawflow!: Drawflow;
 
     constructor(
-        private elementRef: ElementRef
+        private elementRef: ElementRef,
+        private http : HttpService
     ) { }
 
     public mobile_item_selec = '';
 
     ngOnInit(): void {
         this.initDrawflow()
+    }
+
+    exportar(){
+        const data = this.drawflow.export();
+        this.http.post('processFlow', data).subscribe();
     }
 
     initDrawflow() {

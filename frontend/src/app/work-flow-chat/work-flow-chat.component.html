@@ -2,10 +2,15 @@
     <div class="absolute w-[460px] top-4 left-4 z-[99999]">
         <div class="container-menu border border-solid border-gray-300 p-4 bg-[#18181b] rounded flex flex-col gap-2">
 
-            <div class="flex gap-4 items-center">
-                <img width="25px" class="aspect-square"
-                    src="https://img.icons8.com/?size=100&id=4w8Wos4MAKRN&format=png&color=000000" alt="">
-                <span class="font-bold text-lg">Arraste para o fluxgrama</span>
+            <div class="flex gap-4 items-center justify-between">
+                <div>
+                    <img width="25px" class="aspect-square"
+                        src="https://img.icons8.com/?size=100&id=4w8Wos4MAKRN&format=png&color=000000" alt="">
+                    <span class="font-bold text-lg">Arraste para o fluxgrama</span>
+                </div>
+                <div>
+                    <button (click)="exportar()" class="bg-[#1f1f23] text-white px-2 py-1 rounded-sm">Exportar</button>
+                </div>
             </div>
 
 
