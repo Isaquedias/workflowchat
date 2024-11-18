@@ -15,7 +15,7 @@ export class WorkFlowChatComponent implements OnInit {
 
     constructor(
         private elementRef: ElementRef,
-        private http : HttpService
+        private http: HttpService
     ) { }
 
     public mobile_item_selec = '';
@@ -24,9 +24,9 @@ export class WorkFlowChatComponent implements OnInit {
         this.initDrawflow()
     }
 
-    exportar(){
+    exportar() {
         const data = this.drawflow.export();
-        this.http.post('processFlow', data).subscribe();
+        this.http.post('api/v1/process-flow', data).subscribe();
     }
 
     initDrawflow() {
@@ -130,7 +130,7 @@ export class WorkFlowChatComponent implements OnInit {
                     </div>
                 </div>
           `;
-                this.drawflow.addNode('start-whatsapp', 0, 1, pos_x, pos_y, 'start-whatsapp', {}, startWhatsapp, false);
+                this.drawflow.addNode('start-whatsapp', 0, 1, pos_x, pos_y, 'start-whatsapp', {channel : "canal1"}, startWhatsapp, false);
                 break;
             case 'start-manual':
                 let startManual = `
@@ -147,8 +147,8 @@ export class WorkFlowChatComponent implements OnInit {
                 `;
                 this.drawflow.addNode('start-manual', 0, 1, pos_x, pos_y, 'start-manual', {}, startManual, false);
                 break;
-                case 'send-message':
-                    let sendMessage = `
+            case 'send-message':
+                let sendMessage = `
                 <div>
                     <div class="title-box flex gap-4 items-center text-base">
                         <img class="aspect-square" width="30px" src="https://img.icons8.com/?size=100&id=30448&format=png&color=000000">
@@ -161,8 +161,45 @@ export class WorkFlowChatComponent implements OnInit {
                 </div>
 
 `;
-                    this.drawflow.addNode('send-message', 1, 1, pos_x, pos_y, 'send-message', {}, sendMessage, false);
-                    break;
+                this.drawflow.addNode('send-message', 1, 1, pos_x, pos_y, 'send-message', {}, sendMessage, false);
+                break;
+            case 'await':
+                let awaitContant = `
+                <div>
+                    <div class="title-box flex gap-4 items-center text-base">
+                        <img class="aspect-square" width="30px" src="https://img.icons8.com/?size=100&id=2msi5wIpPPec&format=png&color=000000">
+                        Aguardar
+                    </div>
+                    <div class="box flex flex-col">
+                        <span class="text-[#fff] text-base" text-bold>Tempo de espera</span>
+                        <select df-time style="width : 100%">
+                            <option value="5">5 segundos</option>
+                            <option value="30">30 segundos</option>
+                            <option value="60">1 minuto</option>
+                            <option value="120">2 minuto</option>
+                            <option value="300">5 minuto</option>
+                        </select>
+                    </div>
+                </div>
+`;
+                this.drawflow.addNode('await', 1, 1, pos_x, pos_y, 'await', {time : 30}, awaitContant, false);
+                break;
+
+                case 'condition':
+                    let condition = `
+                    <div>
+                        <div class="title-box flex gap-4 items-center text-base">
+                            <img class="aspect-square" width="30px" src="https://img.icons8.com/?size=100&id=2msi5wIpPPec&format=png&color=000000">
+                            Condição
+                        </div>
+                        <div class="box flex flex-col">
+                            <span class="text-[#fff] text-base" text-bold>Condição</span>
+                            <input type="text" df-condition style="width : 100%">
+                        </div>
+                    </div>
+                    `
+
+                    this.drawflow.addNode('condition', 1, 2, pos_x, pos_y, 'condition', {}, condition, false);
                 break;
             default:
         }

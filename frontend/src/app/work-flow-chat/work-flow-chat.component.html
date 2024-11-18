@@ -48,31 +48,29 @@
             </div>
 
             <!-- <div style="background-color: rgba(255,255,255,.45); height: 1px;" class="border bor"></div> -->
-            <!--
+
             <div class="content-menu container-bublles flex flex-col gap-2 ">
                 <header class="flex gap-4 items-center">
-                    <span class="font-bold">Arraste para o fluxgrama</span>
+                    <span class="font-bold">Condicional</span>
                 </header>
 
                 <div class="itens grid grid-cols-2 gap-2">
 
-                    <div class="item cursor-grab flex gap-2 border border-[#1f1f23] rounded-sm p-2 " draggable="true"
-                        (dragstart)="drag($event)" data-node="start-whatsapp">
-                        <img width="25px" height="25px"
-                            src="https://img.icons8.com/?size=100&id=30448&format=png&color=000000"><span> Inciar com
-                            Whatsap</span>
-                    </div>
-
-                    <div class="item cursor-grab flex gap-2 border border-[#1f1f23] rounded-sm p-2 " draggable="true"
-                        (dragstart)="drag($event)" data-node="start-manual">
-                        <img width="25px" height="25px"
-                            src="https://img.icons8.com/?size=100&id=114420&format=png&color=000000"><span> Inciar
-                            manualmente</span>
+                    <div class="item cursor-grab flex flex-col gap-2 border border-[#1f1f23] rounded-sm p-2 "
+                        draggable="true" (dragstart)="drag($event)" data-node="condition">
+                        <header class="flex gap-2">
+                            <img width="25px" height="25px"
+                                src="https://img.icons8.com/?size=100&id=48216&format=png&color=000000">
+                            <span class="font-bold"> Definir Condição</span>
+                        </header>
+                        <div class="description pl-8 text-sm">
+                            Defina regras específicas para o seu fluxo.
+                        </div>
                     </div>
 
                 </div>
 
-            </div> -->
+            </div>
 
             <!-- <div class="separador" class="border bor"></div> -->
 
@@ -92,6 +90,18 @@
                         </header>
                         <div class="description pl-8 text-sm">
                             Envie uma mensagem diretamente para o contato.
+                        </div>
+                    </div>
+
+                    <div class="item cursor-grab flex flex-col gap-2 border border-[#1f1f23] rounded-sm p-2 "
+                        draggable="true" (dragstart)="drag($event)" data-node="await">
+                        <header class="flex gap-2">
+                            <img width="25px" height="25px"
+                                src="https://img.icons8.com/?size=100&id=2msi5wIpPPec&format=png&color=000000">
+                            <span class="font-bold"> Aguardar</span>
+                        </header>
+                        <div class="description pl-8 text-sm">
+                            Defina um tempo de espera antes da próxima ação.
                         </div>
                     </div>
 
